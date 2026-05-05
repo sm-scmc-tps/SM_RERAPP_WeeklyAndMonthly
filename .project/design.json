@@ -1,9 +1,6 @@
 {
-  "Tags": [
-    {
-      "Key": "Performer"
-    }
-  ],
+  "Tags": [],
   "SeparateRuntimeDependencies": true,
-  "IncludeSources": true
+  "IncludeSources": true,
+  "ConnectorKeys": []
 }
