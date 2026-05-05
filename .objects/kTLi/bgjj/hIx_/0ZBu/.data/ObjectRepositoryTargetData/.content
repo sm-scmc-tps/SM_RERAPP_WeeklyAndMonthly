@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="D1cgMDmTTkWO8oIhQRfPtg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="41, 237, 189, 25" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;sap text='Text with Tabs' type='GuiRadioButton' /&gt;" Guid="ca38a23e-16e8-497c-9232-487f0fcccb2c" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#*' title='Save list in file*' idx='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="c66ae428ce68a666eee300e80e3d4da5.png" xmlns="">0aJkOQwWVO06ZqVCxm5iT7Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

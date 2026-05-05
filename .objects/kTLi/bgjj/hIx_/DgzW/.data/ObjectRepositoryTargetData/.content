@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="47iqm-C_RUyYIn37rFYx6Q" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="841, 780, 139, 27" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;sap text='Proceed' type='GuiButton' /&gt;" Guid="2a7316df-d2d1-445a-8c77-7e4130912735" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#*' title='SAP' idx='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="c0355491a1a4636ebace34a63c2aa7a9.png" xmlns="">0iC53o6VNu0uDgtNjMMmdMw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

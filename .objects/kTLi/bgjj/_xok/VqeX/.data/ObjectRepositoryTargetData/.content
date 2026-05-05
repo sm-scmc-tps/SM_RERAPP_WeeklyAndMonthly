@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="0Rvy7QsNaEmY0PwUSAGQjA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="361, 77, 149, 25" ElementType="Toolbar" FullSelectorArgument="&lt;sap id='usr/txtV-LOW' tooltip='Variant Name' type='GuiTextField' /&gt;" Guid="dbfed367-fcfa-435f-ac29-afcb458877fc" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#32770' title='Find Variant' idx='*' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None">
+      <imageRef attrName="InformativeScreenshot" originalValue="eec5e8e2768d2483f7b8ce464f95c2b4.png" xmlns="">0Mwjliq44N06rXUoolOpTFA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

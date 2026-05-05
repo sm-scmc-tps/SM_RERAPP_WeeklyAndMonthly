@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="kAwPmitiDUaTz5g5_cqs4w" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="338, 108, 158, 32" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;sap text='Exclude Single Values' type='GuiTab' /&gt;" Guid="827ab375-c7fe-4410-a099-f785684b532b" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#32770' title='Multiple Selection for Contract' idx='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="4c79ada5ce8971b1b0a3e8971eaee7f6.png" xmlns="">0wTyPitDsiUOHD06RkaYqdQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,12 @@
+﻿{
+  "Name": "SAP Easy Access  -  User Menu",
+  "Type": "App",
+  "Id": "kTLiQgcVvkaFGZnmmfWo4A",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/kTLiQgcVvkaFGZnmmfWo4A",
+  "Created": "2025-10-09T13:33:45.2377753Z",
+  "Updated": "2025-10-09T13:33:45.2377753Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

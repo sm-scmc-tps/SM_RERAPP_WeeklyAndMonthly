@@ -1,0 +1,440 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usa="clr-namespace:UiPathTeam.Subtitle.Activities;assembly=SubtitleActivity" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_dt_ConsolidatedReport" Type="InOutArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>818.4,454.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPathTeam.Subtitle.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.Azure</AssemblyReference>
+      <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>SubtitleActivity</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1226,2861" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:DateTime" Name="Transaction_Date" />
+      <Variable x:TypeArguments="x:String" Name="Branch_Code" />
+      <Variable x:TypeArguments="x:String" Name="Company_Code" />
+      <Variable x:TypeArguments="x:String" Name="Process_Type" />
+      <Variable x:TypeArguments="x:String" Name="Service_Type" />
+      <Variable x:TypeArguments="s:DateTime" Name="Month_End" />
+      <Variable x:TypeArguments="x:String" Name="Variant_Name" />
+      <Variable x:TypeArguments="x:Int32" Name="Retry" />
+      <Variable x:TypeArguments="x:String" Name="Email_AR" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="479,112" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_1" Message="Started Process..." TextColor="White" />
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="Development/Drop 7/SM_PREP_OF_NOTES_CO" sap:VirtualizedContainerService.HintSize="479,228" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="PREP_OF_NOTES_CO_QUEUE">
+      <ui:AddQueueItem.ItemInformation>
+        <InArgument x:TypeArguments="s:DateTime" x:Key="Transaction Date">[Datetime.ParseExact(in_TransactionItem.SpecificContent("Transaction Date").ToString.Trim,"MM/dd/yyyy",System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+      </ui:AddQueueItem.ItemInformation>
+    </ui:AddQueueItem>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,365" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:DateTime">[Transaction_Date]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:DateTime">[Datetime.ParseExact(in_TransactionItem.SpecificContent("Transaction Date").ToString.Trim,"MM/dd/yyyy",System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[Branch_Code]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Branch Code").ToString.Trim]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[Company_Code]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Company Code").ToString.Trim]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[Process_Type]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Process Type").ToString.Trim]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[Service_Type]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Service Type").ToString.Trim]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:DateTime">[Month_End]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:DateTime">[Datetime.ParseExact(in_TransactionItem.SpecificContent("Month End").ToString.Trim,"MM/dd/yyyy",System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[Variant_Name]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Variant Name").ToString.Trim]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[Retry]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">[CInt(in_TransactionItem.SpecificContent("Rerun"))]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="479,112" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_2" Message="[&quot;Transaction Date: &quot; + Transaction_Date.ToString(&quot;MMM/dd/yyyy&quot;) + Environment.NewLine +&#xA;&quot;Branch Code: &quot; + Branch_Code + Environment.NewLine +&#xA;&quot;Company Code: &quot; +Company_Code + Environment.NewLine +&#xA;&quot;Process Type: &quot; + Process_Type + Environment.NewLine + &#xA;&quot;Service Typpe: &quot; + Service_Type + Environment.NewLine +&#xA;&quot;Month End: &quot; + Month_End.ToString(&quot;MMM/dd/yyyy&quot;) + Environment.NewLine]" TextColor="White" />
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Transaction Date: &quot; + Transaction_Date.ToString(&quot;MMM/dd/yyyy&quot;) + Environment.NewLine +&#xA;&quot;Branch Code: &quot; + Branch_Code + Environment.NewLine +&#xA;&quot;Company Code: &quot; +Company_Code + Environment.NewLine +&#xA;&quot;Process Type: &quot; + Process_Type + Environment.NewLine + &#xA;&quot;Service Typpe: &quot; + Service_Type + Environment.NewLine +&#xA;&quot;Month End: &quot; + Month_End.ToString(&quot;MMM/dd/yyyy&quot;) + Environment.NewLine]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="479,1524" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="416,1264" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="Email_Leasing" />
+            <Variable x:TypeArguments="x:String" Name="Email_Operations" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="382,112" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_3" Message="Excel_Get_EmailList for Leasing Starting ...." TextColor="White" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_Get_EmailList - LEASING" sap:VirtualizedContainerService.HintSize="382,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Excel\Excel_Get_EmailList.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Excel_FilePath">[Path.Combine(in_Config("SM_RERAP_EMAIL_TEMPLATE_FolderPath").ToString,in_Config("SM_RERAPP_RPA_Integration_FileName").ToString)]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_BranchCode">[Branch_Code]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Excel_SheetRange">[in_Config("SM_RERAPP_RPA_Integration_SheetRange").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PositionList">[in_Config("SM_RERAPP_RPA_Integration_Leasing_AllowedPositions").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PositionColumn">[in_Config("SM_RERAPP_RPA_Integration_Position_Column_Name").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_EmailColumn">[in_Config("SM_RERAPP_RPA_Integration_Email_Column_Name").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Default_Email">[in_Config("SM_RERAPP_Email_FSS_Billing").ToString]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_EmailList">[Email_Leasing]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="382,112" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_5" Message="Excel_Get_EmailList for Leasing Ending ...." TextColor="White" />
+          <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="382,112" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_6" Message="Excel_Get_EmailList for Operations Starting ...." TextColor="White" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_Get_EmailList - Operations" sap:VirtualizedContainerService.HintSize="382,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Excel\Excel_Get_EmailList.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Excel_FilePath">[Path.Combine(in_Config("SM_RERAP_EMAIL_TEMPLATE_FolderPath").ToString,in_Config("SM_RERAPP_RPA_Integration_FileName").ToString)]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_BranchCode">[Branch_Code]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Excel_SheetRange">[in_Config("SM_RERAPP_RPA_Integration_SheetRange").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PositionList">[in_Config("SM_RERAPP_RPA_Integration_Operations_AllowedPositions").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PositionColumn">[in_Config("SM_RERAPP_RPA_Integration_Position_Column_Name").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_EmailColumn">[in_Config("SM_RERAPP_RPA_Integration_Email_Column_Name").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Default_Email">[in_Config("SM_RERAPP_Email_FSS_Billing").ToString]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_EmailList">[Email_Operations]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_Get_EmailList - FSS-AR" sap:VirtualizedContainerService.HintSize="382,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Excel\Excel_Get_EmailList.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Excel_FilePath">[Path.Combine(in_Config("SM_RERAP_EMAIL_TEMPLATE_FolderPath").ToString,in_Config("SM_RERAPP_RPA_FOR_BOT_OPS_FileName").ToString)]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_BranchCode">[Branch_Code]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Excel_SheetRange">[in_Config("SM_RERAPP_RPA_FOR_BOT_OPS_SheetRange").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PositionList">[in_Config("SM_RERAPP_RPA_FOR_BOT_OPS_FSS_AR_AllowedPositions").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PositionColumn">[in_Config("SM_RERAPP_RPA_FOR_BOT_OPS_Position_Column_Name").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_EmailColumn">[in_Config("SM_RERAPP_RPA_FOR_BOT_OPS_Email_Column_Name").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Default_Email">[in_Config("SM_RERAPP_Email_Default_Recipients").ToString]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_EmailList">[Email_AR]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="382,112" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_7" Message="Excel_Get_EmailList for Operations Ending ...." TextColor="White" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process_Transaction - Invoke Workflow File (Process_Transaction.xaml)" sap:VirtualizedContainerService.HintSize="382,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Process_Transaction.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="s:DateTime" x:Key="in_Transaction_Date">[Transaction_Date]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Branch_Code">[Branch_Code]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Company_Code">[Company_Code]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Process_Type">[Process_Type]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Service_Type">[Service_Type]</InArgument>
+              <InArgument x:TypeArguments="s:DateTime" x:Key="in_Month_End">[Month_End]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_SAP_LogonPath">[in_Config("SM_RERAPP_SAP_LogonPath").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_MaxTimeout">[CInt(in_Config("SM_RERAPP_MaxTimeout"))]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_MinTimeout">[CInt(in_Config("SM_RERAPP_MinTimeout"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_VariantName">[Variant_Name]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_MSTimeout">[CInt(in_Config("SM_RERAPP_MSTimeout"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MSTenantID">[in_Config("SM_RERAPP_MSTenantID").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MSAppID">[in_Config("SM_RERAPP_MSAppID").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MSAppSecret">[in_Config("SM_RERAPP_MSAppSecret").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_EmailBCC">[in_Config("SM_RERAPP_Email_BCC").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Email_Leasing">[Email_Leasing]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Email_Operations">[Email_Operations]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Email_AR">[Email_AR]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,228" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process_Transaction - Copy (1) - Invoke Workflow File (Process_Transaction - Copy (1).xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Process_Transaction - Copy (1).xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="s:DateTime" x:Key="in_Transaction_Date">[Transaction_Date]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Branch_Code">[Branch_Code]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Company_Code">[Company_Code]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Process_Type">[Process_Type]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Service_Type">[Service_Type]</InArgument>
+                    <InArgument x:TypeArguments="s:DateTime" x:Key="in_Month_End">[Month_End]</InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_SAP_LogonPath">[in_Config("SM_RERAPP_SAP_LogonPath").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_MaxTimeout">[CInt(in_Config("SM_RERAPP_MaxTimeout"))]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_MinTimeout">[CInt(in_Config("SM_RERAPP_MinTimeout"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_VariantName">[Variant_Name]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_MSTimeout">[CInt(in_Config("SM_RERAPP_MSTimeout"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_MSTenantID">[in_Config("SM_RERAPP_MSTenantID").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_MSAppID">[in_Config("SM_RERAPP_MSAppID").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_MSAppSecret">[in_Config("SM_RERAPP_MSAppSecret").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_EmailBCC">[in_Config("SM_RERAPP_Email_BCC").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Email_Leasing">[Email_Leasing]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Email_Operations">[Email_Operations]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Email_AR">[Email_AR]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484,1538" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="Error_Display" />
+                <Variable x:TypeArguments="x:Boolean" Name="Rerun" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Error Encountered in Process Transaction: &quot; + exception.Source + &quot;_&quot; + exception.Message]" />
+              <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="450,165" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="saplogon" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Generic_Get_Error_Display_And_Rerun - Invoke Workflow File (Generic\Generic_Get_Error_Display_And_Rerun.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Generic\Generic_Get_Error_Display_And_Rerun.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Error_Message">[exception.Message]</InArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="out_Error_Display">[Error_Display]</OutArgument>
+                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_Default_Rerun">[Cbool(in_Config("SM_RERAPP_Error_Default_Rerun"))]</InArgument>
+                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Rerun">[Rerun]</OutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Default_Error_Display">[in_Config("SM_RERAPP_Error_Default_Error_Display").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Error_Masterlist">[in_Config("SM_RERAPP_Error_MasterList").ToString]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Generic_DeleteFilesInLocalFolders - Invoke Workflow File (Generic\Generic_DeleteFilesInLocalFolders.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Generic\Generic_DeleteFilesInLocalFolders.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Error Display: &quot; + Error_Display +&quot; | &quot; + Rerun.ToString]" />
+              <If Condition="[Rerun]" sap:VirtualizedContainerService.HintSize="450,613" sap2010:WorkflowViewState.IdRef="If_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,228" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Generic_CheckRetry - Invoke Workflow File (Generic_CheckRetry.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Generic_CheckRetry.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:Int32" x:Key="in_Retry">[Retry]</InArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                        <InArgument x:TypeArguments="s:DateTime" x:Key="in_Transaction_Date">[Transaction_Date]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Branch_Code">[Branch_Code]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Company_Code">[Company_Code]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Process_Type">[Process_Type]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Service_Type">[Service_Type]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_VariantName">[Variant_Name]</InArgument>
+                        <InArgument x:TypeArguments="s:DateTime" x:Key="in_Month_End">[Month_End]</InArgument>
+                        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_ConsolidatedReport">[io_dt_ConsolidatedReport]</InOutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Error_Display">[Error_Display]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Email_AR">[Email_AR]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;Error Encountered Not Included For Rerun: &quot; + Error_Display +&quot;_&quot; + Rerun.ToString]" />
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="479,79" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+  </Sequence>
+</Activity>

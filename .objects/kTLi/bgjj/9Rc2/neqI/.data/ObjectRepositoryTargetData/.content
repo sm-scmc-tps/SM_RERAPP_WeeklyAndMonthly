@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="gpMYVYFeQEGT7XeJ5WXQvA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="20, 156, 2519, 1180" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;sap id='usr/cntlCC_GRID_CF/shellcont/shell' /&gt;" Guid="fa1baa4f-b1b8-46a2-9f71-f460fe2c26ef" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Periodic Posting: Contracts Simulation' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="faa3a91e1a00b65fcaa5c6f6c00ab0c3.png" xmlns="">0cPA44wyjm0aFUFN2sx8X0g</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">SAPClickToolbarButton</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

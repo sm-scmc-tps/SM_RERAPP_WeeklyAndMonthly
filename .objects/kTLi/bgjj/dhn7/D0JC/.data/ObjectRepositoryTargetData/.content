@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="FU7VS3MDBU64Nhs4kvbiYQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="71, 77, 509, 25" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;sap text='Conditions for period selected are already posted' type='GuiTextField' /&gt;" Guid="6131fc9c-c199-487d-a03c-177d098c6a3b" ImageBase64="" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#*' title='Information' idx='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="8565a28a10ce365a6d4488e4cf494952.png" xmlns="">0qOfyuHjXPk2t5-Cxb0RZMQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

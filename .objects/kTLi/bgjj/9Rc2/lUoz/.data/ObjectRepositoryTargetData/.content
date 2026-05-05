@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="HIbWwGxwokGM6LOW59xWjA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="360, 1116, 259, 25" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;sap tooltip='Execution Mode of Process' type='GuiComboBox' /&gt;" Guid="f87f76aa-cf13-4c65-8b62-ef7327f4fb6c" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="fbed3db0520a66da32d79f1d48a19358.png" xmlns="">03lqj6-w9okuqqObxaLp9qA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">SelectItem</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

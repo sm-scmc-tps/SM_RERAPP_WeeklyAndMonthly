@@ -1,0 +1,14 @@
+﻿{
+  "Name": "RERAPP Simulation with …(2)",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "Qj5XCjb-lEy0QIRJUys8sA",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/Qj5XCjb-lEy0QIRJUys8sA",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/I9whyb0_h02wu6aer8gnLg",
+  "Created": "2025-10-09T13:36:33.6555913Z",
+  "Updated": "2025-10-09T13:36:33.6555913Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

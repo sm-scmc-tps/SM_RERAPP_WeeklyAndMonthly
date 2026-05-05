@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="jLpcVmF3cEG4UfH4I7eygA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="901, 560, 26, 26" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;sap tooltip='Upload from Clipboard*' type='GuiButton' /&gt;" Guid="5baf6d2e-b18d-4030-ad63-d94f70670164" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#*' title='*' idx='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="67660a7b9b24d528ae52b161a555c94b.png" xmlns="">0KVNNznP8wUqO1xEcJoXW2w</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,13 @@
+﻿{
+  "Name": "New application(1)",
+  "Type": "Screen",
+  "Id": "HP_RQG1QY0iAIkbjwLNLAA",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/HP_RQG1QY0iAIkbjwLNLAA",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/bgjjIBpfcUKqoxzOuwwueQ",
+  "Created": "2025-10-10T09:31:11.9474894Z",
+  "Updated": "2025-10-10T09:31:11.9474894Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

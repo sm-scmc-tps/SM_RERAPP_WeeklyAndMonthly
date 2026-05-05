@@ -1,0 +1,178 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Vista_CheckRetry" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Retry" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Transaction_Date" Type="InArgument(s:DateTime)" />
+    <x:Property Name="in_Branch_Code" Type="InArgument(x:String)" />
+    <x:Property Name="in_Company_Code" Type="InArgument(x:String)" />
+    <x:Property Name="in_Process_Type" Type="InArgument(x:String)" />
+    <x:Property Name="in_Service_Type" Type="InArgument(x:String)" />
+    <x:Property Name="in_VariantName" Type="InArgument(x:String)" />
+    <x:Property Name="in_Month_End" Type="InArgument(s:DateTime)" />
+    <x:Property Name="io_dt_ConsolidatedReport" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_Error_Display" Type="InArgument(x:String)" />
+    <x:Property Name="in_Email_AR" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Vista_CheckRetry.in_Transaction_Date>
+    <InArgument x:TypeArguments="s:DateTime" />
+  </this:Vista_CheckRetry.in_Transaction_Date>
+  <this:Vista_CheckRetry.in_Branch_Code>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Vista_CheckRetry.in_Branch_Code>
+  <this:Vista_CheckRetry.in_Company_Code>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Vista_CheckRetry.in_Company_Code>
+  <this:Vista_CheckRetry.in_Process_Type>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Vista_CheckRetry.in_Process_Type>
+  <this:Vista_CheckRetry.in_Service_Type>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Vista_CheckRetry.in_Service_Type>
+  <this:Vista_CheckRetry.in_VariantName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Vista_CheckRetry.in_VariantName>
+  <this:Vista_CheckRetry.in_Month_End>
+    <InArgument x:TypeArguments="s:DateTime" />
+  </this:Vista_CheckRetry.in_Month_End>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="1733,830" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If Condition="[CInt(in_Retry) = 0]" sap:VirtualizedContainerService.HintSize="418,807" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,454" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item to Orchestrator" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString.Trim]" sap:VirtualizedContainerService.HintSize="382,226" sap2010:WorkflowViewState.IdRef="AddQueueItem_5" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString.Trim]" Reference="[in_Transaction_Date.ToString(&quot;MM/dd/yyyy&quot;) + &quot; | &quot; + in_Branch_Code + &quot; | &quot; + in_Company_Code + &quot; | &quot; + in_Process_Type + &quot; | &quot; + in_Service_Type + &quot; | &quot;   + in_VariantName + &quot; | &quot;  + in_Month_End.ToString(&quot;MM/dd/yyyy&quot;)+ &quot; | &quot;  + &quot;1&quot;]">
+            <ui:AddQueueItem.ItemInformation>
+              <InArgument x:TypeArguments="x:String" x:Key="Transaction Date">[in_Transaction_Date.ToString("MM/dd/yyyy")]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Branch Code">[in_Branch_Code]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Company Code">[in_Company_Code]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Process Type">[in_Process_Type]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Service Type">[in_Service_Type]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Variant Name">[in_VariantName]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Month End">[in_Month_End.ToString("MM/dd/yyyy")]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Rerun">1</InArgument>
+            </ui:AddQueueItem.ItemInformation>
+          </ui:AddQueueItem>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Outlook_ConsolidateReport - Invoke Workflow File (Outlook_ConsolidateReport.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Generic_ConsolidateReport.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="s:DateTime" x:Key="in_Transaction_Date">[in_Transaction_Date]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Branch_Code">[in_Branch_Code]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Company_Code">[in_Company_Code]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Process_Type">[in_Process_Type]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Service_Type">[in_Service_Type]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_VariantName">[in_VariantName]</InArgument>
+              <InArgument x:TypeArguments="s:DateTime" x:Key="in_Month_End">[in_Month_End]</InArgument>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_ConsolidatedReport">[io_dt_ConsolidatedReport]</InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Error_Display">[in_Error_Display]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Email_AR">[in_Email_AR]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Retry: &quot; + in_Retry.ToString]" />
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

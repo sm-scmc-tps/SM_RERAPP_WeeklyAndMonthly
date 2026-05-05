@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Button Upload from Clip…",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "NbgOopCCP0i-GjjGdh7k7A",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/NbgOopCCP0i-GjjGdh7k7A",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/hIx_TdZCe0ak1aDPDPm3MQ",
+  "Created": "2025-10-13T14:50:48.9811198Z",
+  "Updated": "2025-10-13T14:50:48.9811198Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

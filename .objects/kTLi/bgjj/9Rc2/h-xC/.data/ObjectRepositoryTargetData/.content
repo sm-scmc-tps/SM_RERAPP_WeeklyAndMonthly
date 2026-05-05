@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="WdYiyKJsAUOCsOLDCp9Q_A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="21, 489, 2487, 846" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;sap id='usr/subSUBSCREEN:SAPLSBAL_DISPLAY:0101/cntlSAPLSBAL_DISPLAY_CONTAINER/shellcont/shell/shellcont[1]/shell' /&gt;" Guid="dcdca7e8-67c4-45df-8cbb-b3d61fd06097" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Log Display' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="9ab8d9a389edbbed4ee4a39db58909df.png" xmlns="">0oY0AksCtDUW-TO77cYLL4w</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">SAPClickToolbarButton</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

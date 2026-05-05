@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Button Copy (F8)",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "gCXFI-U86kqwQ2N-TTuTMA",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/gCXFI-U86kqwQ2N-TTuTMA",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/hIx_TdZCe0ak1aDPDPm3MQ",
+  "Created": "2025-10-13T14:52:38.0440824Z",
+  "Updated": "2025-10-13T14:52:38.0440824Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,13 @@
+﻿{
+  "Name": "SAPGUI.GridViewCtrl.1",
+  "Type": "Element",
+  "Id": "h-xCdujCJkOXWXJ0rMlbNw",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/h-xCdujCJkOXWXJ0rMlbNw",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/9Rc2W9kVeEm6pkuH3AOu6Q",
+  "Created": "2025-10-17T14:53:28.0339001Z",
+  "Updated": "2025-10-17T14:53:28.0339001Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

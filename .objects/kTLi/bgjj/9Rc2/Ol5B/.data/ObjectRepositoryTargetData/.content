@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="B35KLN8qEk2fo8kDMWhSJg" Reference="9sGb63Rt_U-Mv7WHWgXnIw/Ol5BIHJe9EO4m278QD_YhQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="425, 272, 26, 26" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;sap tooltip='*Execute*' type='GuiButton' /&gt;" Guid="508874bd-328c-4f5b-8a32-895bedf00eaa" ImageBase64="" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='#*' title='Find Variant' idx='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="a45efaf8ab17715c8d7a6419ca2a6050.png" xmlns="">05kM_CQSAUk-noEifuAeiIg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

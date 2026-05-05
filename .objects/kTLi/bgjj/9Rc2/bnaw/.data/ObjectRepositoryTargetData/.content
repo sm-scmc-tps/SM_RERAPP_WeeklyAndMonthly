@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="-pc6cxdbQU6Fv4OCdyypig" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="20, 156, 2519, 1180" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;sap id='usr/cntlCC_GRID_CF/shellcont/shell' /&gt;" Guid="93b56842-4bf9-41cb-9f6c-9f2fd1388417" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="fdf4e693d3650149df5472e9bb523a7b.png" xmlns="">0Zh_raGx_E0O2qq_GQl9qoQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetAttributeGeneric</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

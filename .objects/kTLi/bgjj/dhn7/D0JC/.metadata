@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Conditions for period s…",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "D0JCch8fpUKEZobluZQrJQ",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/D0JCch8fpUKEZobluZQrJQ",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/dhn7X91cP0ehENcvIwD-IQ",
+  "Created": "2025-10-10T06:44:47.2056443Z",
+  "Updated": "2025-10-10T06:44:47.2056443Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

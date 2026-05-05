@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="csozd4GSAkeNlpOSvANPjg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="bdc0bf0e-9839-4275-9db3-828f4b6674e5" DesignTimeRectangle="197, 931, 1060, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;wnd aaname='File name:' aastate='focusable' idx='*' /&gt;" Guid="5a449860-f5e5-465d-a07a-fc8493a18dbc" ScopeSelectorArgument="&lt;wnd app='excel.exe' cls='#*' title='*Excel*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="bac5f4f749d87af5103dd134c2a5477f.png" xmlns="">0kghbTAjAnUq23ecn4HLJ-Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

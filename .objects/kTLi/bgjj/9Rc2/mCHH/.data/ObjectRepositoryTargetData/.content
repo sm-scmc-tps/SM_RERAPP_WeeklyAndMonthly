@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="1eSR1ZdE2UGvLFMm0IFYUw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="40, 188, 320, 25" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;sap text='*Customer account*' type='GuiTextField' /&gt;" Guid="f4bc0a3d-7737-4df8-9cfe-6728c3dd9623" ImageBase64="" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="f737f02744f20c8ccaa658f744ad0c43.png" xmlns="">0XGFVoltQv0m501I4g7yLFw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="HcsHXf9ypEWbRjqHidkVEA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="54, 1364, 431, 16" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;sap id='sbar/pane[*]' type='GuiStatusPane' /&gt;" Guid="e412c6cf-5116-4e54-ab6a-1b201d973193" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="ddbe62bf426a77b1f855dc4b7c46d314.png" xmlns="">0yjUMQ6y5gku1zm7JtNigUQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

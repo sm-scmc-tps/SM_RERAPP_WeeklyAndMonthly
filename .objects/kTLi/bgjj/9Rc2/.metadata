@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Display SAP Get Variant Page",
+  "Type": "Screen",
+  "Id": "9Rc2W9kVeEm6pkuH3AOu6Q",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/9Rc2W9kVeEm6pkuH3AOu6Q",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/bgjjIBpfcUKqoxzOuwwueQ",
+  "Created": "2025-10-09T13:59:59.9978068Z",
+  "Updated": "2025-10-09T13:59:59.9978068Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

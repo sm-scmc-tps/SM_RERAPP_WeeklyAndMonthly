@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Button Continue (Enter)",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "Zw2I6buaYkGwmyEsDdPOjA",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/Zw2I6buaYkGwmyEsDdPOjA",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/HP_RQG1QY0iAIkbjwLNLAA",
+  "Created": "2025-10-10T09:31:12.0247602Z",
+  "Updated": "2025-10-10T09:31:12.0247602Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

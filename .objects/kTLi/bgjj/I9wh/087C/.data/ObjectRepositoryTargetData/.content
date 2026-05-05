@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="n7FkBR_Vd0a7yGtWri1cJg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="200, 99, 215, 26" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;sap text='RERAPP Simulation with EWT' /&gt;" Guid="60aa6e7e-0e36-42a9-ae57-1b3b277738b1" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="48fe5d58cd6f4485751d80199bccf6d2.png" xmlns="">08J1PdY7BuUG86cdX4_SAYQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

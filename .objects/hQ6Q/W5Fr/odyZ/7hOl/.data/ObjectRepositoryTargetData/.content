@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="4pQHfSNC60mdhBgBXT3yPQ" Reference="9sGb63Rt_U-Mv7WHWgXnIw/7hOlC9SKEU6lXZbxP4FPRQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="6ad5349a-a58f-45c5-b63b-19d96477176a" DesignTimeRectangle="197, 640, 778, 24" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;wnd aaname='File name:' aastate='collapsed, focusable' /&gt;" Guid="8cba7e31-59fb-45d8-9665-f7bed88459d8" ScopeSelectorArgument="&lt;wnd app='excel.exe' cls='#*' title='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="6ad5349a-a58f-45c5-b63b-19d96477176a" DesignTimeRectangle="138, 644, 54, 15" ElementType="Text" FullSelectorArgument="&lt;wnd aaname='File name:' aastate='read only' /&gt;" Guid="0b7ba8a4-3d89-4b0b-871b-fe855296c475" SearchSteps="Selector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="dd01b330e1fc8191e20358e91efc1669.png" xmlns="">01RtrvFnJwk2UKE8-9aBq7Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

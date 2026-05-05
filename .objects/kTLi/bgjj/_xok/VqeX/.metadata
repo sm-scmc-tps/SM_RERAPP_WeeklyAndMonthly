@@ -1,0 +1,13 @@
+﻿{
+  "Name": "TextField Variant Name",
+  "Type": "Element",
+  "Id": "VqeX2RKZ_kC8g-SEw6x0Nw",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/VqeX2RKZ_kC8g-SEw6x0Nw",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/_xokvgbzKE2fAHfuqzli2g",
+  "Created": "2025-10-27T03:55:35.7175562Z",
+  "Updated": "2025-10-27T03:55:35.7175562Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.4.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

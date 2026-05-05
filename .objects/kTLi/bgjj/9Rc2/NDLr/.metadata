@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Periodic Posting + Tran…",
+  "Type": "Element",
+  "TaxonomyType": "Dropdown",
+  "Id": "NDLrO6QAb06Hsek-Imvz2A",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/NDLrO6QAb06Hsek-Imvz2A",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/9Rc2W9kVeEm6pkuH3AOu6Q",
+  "Created": "2025-10-18T09:02:47.5793447Z",
+  "Updated": "2025-10-18T09:02:47.5793447Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

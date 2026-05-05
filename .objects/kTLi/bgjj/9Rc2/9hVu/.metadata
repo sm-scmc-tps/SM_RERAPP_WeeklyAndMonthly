@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Button Multiple selecti…",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "9hVuzq6h_0WFNgJN_4AU4g",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/9hVuzq6h_0WFNgJN_4AU4g",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/9Rc2W9kVeEm6pkuH3AOu6Q",
+  "Created": "2025-10-13T14:47:14.4896416Z",
+  "Updated": "2025-10-13T14:47:14.4896416Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

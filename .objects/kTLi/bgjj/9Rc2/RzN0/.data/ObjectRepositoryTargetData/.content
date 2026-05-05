@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="yDU2rJk7Eky3gUE-cFIY4Q" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="20, 156, 2519, 1180" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;sap id='usr/cntlCC_GRID_CF/shellcont/shell' /&gt;" FuzzySelectorArgument="&lt;sap id='usr/cntlCC_GRID_CF/shellcont/shell' check:text='SAPGUI.GridViewCtrl.1' /&gt;" Guid="b75d1981-22f2-42e3-a28c-435a30e91903" ImageBase64="" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Periodic Posting*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="c4b4d3c1acd0f614a6fe22d99426b2d9.png" xmlns="">0YNFTqI7x5UOseAfwmC_8zQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

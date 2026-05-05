@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Bhn2-q5HmEWOQLtCOdszmg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="20, 156, 2519, 1180" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;sap id='usr/cntlCC_GRID_CF/shellcont/shell' /&gt;" Guid="9a58e0ed-2ace-43e1-9ae2-01ede44ab1f6" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Periodic Posting: Contracts Update Run' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="f25ded31872bc4d4e65e847b3e1d1fd6.png" xmlns="">02RQGXQZUiUKryOtUtB7GAQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

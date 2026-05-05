@@ -1,0 +1,14 @@
+﻿{
+  "Name": "CTextField Customer Num…",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "5w0e1KptNE-BZj35EBGsKQ",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/5w0e1KptNE-BZj35EBGsKQ",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/9Rc2W9kVeEm6pkuH3AOu6Q",
+  "Created": "2025-10-13T14:44:29.7168053Z",
+  "Updated": "2025-10-13T14:44:29.7168053Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

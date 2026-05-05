@@ -1,0 +1,9 @@
+{
+  "Tags": [
+    {
+      "Key": "Performer"
+    }
+  ],
+  "SeparateRuntimeDependencies": true,
+  "IncludeSources": true
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="JCPPZrsu50yTtncFdgqrQg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="c5852a33-56b5-4a2c-82a2-0e10f83910a0" DesignTimeRectangle="987, 669, 88, 26" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;wnd title='*Open' aaname='Open' cls='Button' /&gt;" Guid="aa717e30-0a0f-420e-8ddb-6ada55026e72" ScopeSelectorArgument="&lt;wnd app='excel.exe' cls='#*' title='*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="1581f461b65426726bc5c40bdcbd504b.png" xmlns="">0qHd6HWSb1Eepa6Ig7Gd5ag</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

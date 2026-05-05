@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Back",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "7pjn3nZ9qU2fkOy239I7zw",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/7pjn3nZ9qU2fkOy239I7zw",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/9Rc2W9kVeEm6pkuH3AOu6Q",
+  "Created": "2025-10-10T08:32:31.7465176Z",
+  "Updated": "2025-10-10T08:32:31.7465176Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

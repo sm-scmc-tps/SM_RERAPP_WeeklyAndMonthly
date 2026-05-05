@@ -1,0 +1,986 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process_Transaction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umfm="clr-namespace:UiPath.MicrosoftOffice365.Files.Models;assembly=UiPath.MicrosoftOffice365" xmlns:usa="clr-namespace:UiPathTeam.Subtitle.Activities;assembly=SubtitleActivity" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Transaction_Date" Type="InArgument(s:DateTime)" />
+    <x:Property Name="in_Branch_Code" Type="InArgument(x:String)" />
+    <x:Property Name="in_Company_Code" Type="InArgument(x:String)" />
+    <x:Property Name="in_Process_Type" Type="InArgument(x:String)" />
+    <x:Property Name="in_Service_Type" Type="InArgument(x:String)" />
+    <x:Property Name="in_Month_End" Type="InArgument(s:DateTime)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_SAP_LogonPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_MaxTimeout" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_MinTimeout" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_VariantName" Type="InArgument(x:String)" />
+    <x:Property Name="in_MSTimeout" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_MSTenantID" Type="InArgument(x:String)" />
+    <x:Property Name="in_MSAppID" Type="InArgument(x:String)" />
+    <x:Property Name="in_MSAppSecret" Type="InArgument(x:String)" />
+    <x:Property Name="in_EmailBCC" Type="InArgument(x:String)" />
+    <x:Property Name="in_Email_Leasing" Type="InArgument(x:String)" />
+    <x:Property Name="in_Email_Operations" Type="InArgument(x:String)" />
+    <x:Property Name="in_Email_AR" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Process_Transaction.in_SAP_LogonPath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Process_Transaction.in_SAP_LogonPath>
+  <this:Process_Transaction.in_MaxTimeout>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Process_Transaction.in_MaxTimeout>
+  <this:Process_Transaction.in_MinTimeout>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Process_Transaction.in_MinTimeout>
+  <this:Process_Transaction.in_VariantName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Process_Transaction.in_VariantName>
+  <this:Process_Transaction.in_MSTimeout>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Process_Transaction.in_MSTimeout>
+  <this:Process_Transaction.in_MSTenantID>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Process_Transaction.in_MSTenantID>
+  <this:Process_Transaction.in_MSAppID>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Process_Transaction.in_MSAppID>
+  <this:Process_Transaction.in_MSAppSecret>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Process_Transaction.in_MSAppSecret>
+  <this:Process_Transaction.in_EmailBCC>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Process_Transaction.in_EmailBCC>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Process_Transaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPathTeam.Subtitle.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.MicrosoftOffice365</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>SubtitleActivity</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart DisplayName="Process_Transaction" sap:VirtualizedContainerService.HintSize="1750,1138.04" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="isSAPLogin" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_ClassificationLeasing" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_ClassificationOperations" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_ExcelResult" />
+      <Variable x:TypeArguments="x:String" Default="000006302025REPP" Name="SettlementID" />
+      <Variable x:TypeArguments="umfm:O365DriveRemoteItem" Name="DestinationFolder" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Size x:Key="ShapeSize">50,50</av:Size>
+        <av:Point x:Key="ShapeLocation">785,35</av:Point>
+        <av:PointCollection x:Key="ConnectorLocation">810,85 810,135</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID27</x:Reference>
+    </Flowchart.StartNode>
+    <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID6" DisplayName="in_Process_Type" Expression="[in_Process_Type.Trim.ToLower]" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
+      <FlowSwitch.Default>
+        <FlowStep x:Name="__ReferenceID7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">755,895</av:Point>
+              <av:Size x:Key="ShapeSize">110,70</av:Size>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Invalid Process Type: &quot; + in_Process_Type]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+        </FlowStep>
+      </FlowSwitch.Default>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">780,760</av:Point>
+          <av:Size x:Key="ShapeSize">60,60</av:Size>
+          <av:PointCollection x:Key="snacktimeConnector">1048,678.128 813,678.128</av:PointCollection>
+          <av:PointCollection x:Key="foodcourtConnector">1108,678.128 1323,678.128</av:PointCollection>
+          <av:PointCollection x:Key="weeklyConnector">780,790 550,790 550,825</av:PointCollection>
+          <av:PointCollection x:Key="treasuryConnector">1078,708.128 1078,738.128 1188,738.128 1188,793.128</av:PointCollection>
+          <av:PointCollection x:Key="Default">810,820 810,895</av:PointCollection>
+          <av:PointCollection x:Key="monthlyConnector">840,790 1050,790 1050,825</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <FlowStep x:Key="weekly" x:Name="__ReferenceID8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">495,825</av:Point>
+            <av:Size x:Key="ShapeSize">110,70</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">550,895 550,1140</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Process Type: &quot; + in_Process_Type]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:LogMessage>
+        <FlowStep.Next>
+          <FlowDecision x:Name="__ReferenceID10" Condition="True" DisplayName="dt_ClassificationLeasing IsNot Nothing" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <av:Point x:Key="ShapeLocation">520,1140</av:Point>
+                <av:Size x:Key="ShapeSize">60,60</av:Size>
+                <av:PointCollection x:Key="TrueConnector">580,1170 690,1170 690,1215</av:PointCollection>
+                <av:PointCollection x:Key="FalseConnector">520,1170 380,1170 380,1225</av:PointCollection>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <FlowDecision.True>
+              <FlowStep x:Name="__ReferenceID11" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">635,1215</av:Point>
+                    <av:Size x:Key="ShapeSize">110,70</av:Size>
+                    <av:PointCollection x:Key="ConnectorLocation">690,1285 690,1335</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_Write_DataTable - Invoke Workflow File (Excel_Write_DataTable.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_52" UnSafe="False" WorkflowFileName="Excel\Excel_Write_DataTable.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:Boolean" x:Key="in_AddHeaders">True</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_Excel_FilePath">[Path.Combine(in_Config("SM_RERAP_LEASING_FolderPath").ToString, in_Config("SM_RERAP_LEASING_FileName").ToString.Replace("[Branch]",in_Branch_Code).Replace("[Service Type]",in_Service_Type) )]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_Excel_FileSheet">[in_Config("SM_RERAPP_LEASING_AND_OPERATION_SheetName").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_Excel_FileCell">[in_Config("SM_RERAPP_LEASING_AND_OPERATION_SheetRange").ToString]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_InputData">[dt_ClassificationLeasing]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:InvokeWorkflowFile>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                </ui:CommentOut>
+                <FlowStep.Next>
+                  <FlowStep x:Name="__ReferenceID13" sap2010:WorkflowViewState.IdRef="FlowStep_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">635,1335</av:Point>
+                        <av:Size x:Key="ShapeSize">110,70</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">690,1405 690,1435</av:PointCollection>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Upload Leasing" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="s:String[]" Name="arr_files" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sharepoint_CreateFolder - Invoke Workflow File (Sharepoint_CreateFolder.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_61" UnSafe="False" WorkflowFileName="Sharepoint\Sharepoint_CreateFolder.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_MainSharepointURL">[in_Config("SM_RERAPP_Sharepoint_Environment_URL").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder1">[in_Config("SM_RERAPP_Sharepoint_Accounts_Receivable_Folder").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder2">[in_Config("SM_RERAPP_Sharepoint_RERAPP_Folder").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder3">[in_Config("SM_RERAPP_Sharepoint_Weekly_RERAPP_with_EWT_Folder").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder4">[in_Branch_Code]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder5">[in_Month_End.ToString("yyyy")]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder6">[in_Month_End.ToString("MM")+in_Month_End.ToString("MMMM")]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder7">[Nothing]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder8">[Nothing]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder9">[Nothing]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder10">[Nothing]</InArgument>
+                          <InOutArgument x:TypeArguments="umfm:O365DriveRemoteItem" x:Key="io_DestinationFolder">[DestinationFolder]</InOutArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                          <InArgument x:TypeArguments="x:Int32" x:Key="in_MSTimeout">[in_MSTimeout]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_MSTenantID">[in_MSTenantID]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_MSAppID">[in_MSAppID]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_MSAppSecret">[in_MSAppSecret]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:InvokeWorkflowFile>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="CommentOut_17">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,228" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sharepoint_GetLocalFiles - Invoke Workflow File (Sharepoint_GetLocalFiles.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_62" UnSafe="False" WorkflowFileName="Sharepoint\Sharepoint_GetLocalFiles.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_LocalFilePath">[in_Config("SM_RERAP_LEASING_FolderPath").toString]</InArgument>
+                                <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_Files">[arr_files]</OutArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="CommentOut_18">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,228" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sharepoint_UploadFilesList - Invoke Workflow File (Sharepoint_UploadFilesList.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_63" UnSafe="False" WorkflowFileName="Sharepoint\Sharepoint_UploadFilesList.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="s:String[]" x:Key="in_FileList">[arr_files]</InArgument>
+                                <InArgument x:TypeArguments="umfm:O365DriveRemoteItem" x:Key="in_DestinationFolder">[DestinationFolder]</InArgument>
+                                <InArgument x:TypeArguments="x:Int32" x:Key="in_MSTimeout">[in_MSTimeout]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_MSTenantID">[in_MSTenantID]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_MSAppID">[in_MSAppID]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_MSAppSecret">[in_MSAppSecret]</InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
+                    </Sequence>
+                    <FlowStep.Next>
+                      <FlowStep x:Name="__ReferenceID22">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">635,1435</av:Point>
+                            <av:Size x:Key="ShapeSize">110,70</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">690,1505 690,1535</av:PointCollection>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;Destination URL: &quot; + DestinationFolder.Url]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <FlowStep.Next>
+                          <FlowStep x:Name="__ReferenceID19">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">635,1535</av:Point>
+                                <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">690,1605 690,1635 540,1635 540,1650</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Outlook_EmailComplete - Invoke Workflow File (Outlook\Outlook_EmailComplete.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_85" UnSafe="False" WorkflowFileName="Outlook\Outlook_SendEmail.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_TransactionDate">[Nothing]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailTO">[in_Email_Leasing]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailSubject">[in_Config("SM_RERAPP_Email_Weekly_Subject").ToString.Replace("[Branch Code]",in_Branch_Code).Replace("[Service Type]",in_Service_Type).Replace("[Month]",in_Month_End.toString("MMMM")).Replace("[Year]",in_Month_End.toString("yyyy")).Replace("[Department]",in_Config("SM_RERAPP_Email_Leasing_Name").ToString)]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailBody">[in_Config("SM_RERAPP_Email_Weekly_Body").ToString.Replace("[Branch Code]",in_Branch_Code).Replace("[Service Type]",in_Service_Type).Replace("[Month]",in_Month_End.toString("MMMM")).Replace("[Year]",in_Month_End.toString("yyyy")).Replace("[Department]",in_Config("SM_RERAPP_Email_Leasing_Name").ToString).Replace("[Sharepoint Link]",DestinationFolder.Url)]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailCC">[in_Email_AR]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailBCC">[in_EmailBCC]</InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                            <FlowStep.Next>
+                              <FlowDecision x:Name="__ReferenceID0" Condition="True" DisplayName="true" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <av:Point x:Key="ShapeLocation">510,1650</av:Point>
+                                    <av:Size x:Key="ShapeSize">60,60</av:Size>
+                                    <av:PointCollection x:Key="TrueConnector">570,1680 690,1680 690,1805</av:PointCollection>
+                                    <av:PointCollection x:Key="FalseConnector">510,1680 380,1680 380,1805</av:PointCollection>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <FlowDecision.True>
+                                  <FlowStep x:Name="__ReferenceID15">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:Point x:Key="ShapeLocation">635,1805</av:Point>
+                                        <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                        <av:PointCollection x:Key="ConnectorLocation">690,1875 690,1925</av:PointCollection>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="CommentOut_12">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_Write_DataTable - Invoke Workflow File (Excel_Write_DataTable.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_65" UnSafe="False" WorkflowFileName="Excel\Excel_Write_DataTable.xaml">
+                                            <ui:InvokeWorkflowFile.Arguments>
+                                              <InArgument x:TypeArguments="x:Boolean" x:Key="in_AddHeaders">True</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_Excel_FilePath">[Path.Combine(in_Config("SM_RERAP_OPERATIONS_FolderPath").ToString, in_Config("SM_RERAP_OPERATIONS_FileName").ToString.Replace("[Branch]",in_Branch_Code).Replace("[Service Type]",in_Service_Type) )]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_Excel_FileSheet">[in_Config("SM_RERAPP_LEASING_AND_OPERATION_SheetName").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_Excel_FileCell">[in_Config("SM_RERAPP_LEASING_AND_OPERATION_SheetRange").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_InputData">[dt_ClassificationOperations]</InArgument>
+                                            </ui:InvokeWorkflowFile.Arguments>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:InvokeWorkflowFile>
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                    </ui:CommentOut>
+                                    <FlowStep.Next>
+                                      <FlowStep x:Name="__ReferenceID14">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <av:Point x:Key="ShapeLocation">635,1925</av:Point>
+                                            <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                            <av:PointCollection x:Key="ConnectorLocation">690,1995 690,2035</av:PointCollection>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Sequence DisplayName="Upload Leasing" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                          <Sequence.Variables>
+                                            <Variable x:TypeArguments="s:String[]" Name="arr_files" />
+                                          </Sequence.Variables>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sharepoint_CreateFolder - Invoke Workflow File (Sharepoint_CreateFolder.xaml)" sap:VirtualizedContainerService.HintSize="486,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_66" UnSafe="False" WorkflowFileName="Sharepoint\Sharepoint_CreateFolder.xaml">
+                                            <ui:InvokeWorkflowFile.Arguments>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_MainSharepointURL">[in_Config("SM_RERAPP_Sharepoint_Environment_URL").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder1">[in_Config("SM_RERAPP_Sharepoint_Accounts_Receivable_Folder").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder2">[in_Config("SM_RERAPP_Sharepoint_RERAPP_Folder").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder3">[in_Config("SM_RERAPP_Sharepoint_Weekly_RERAPP_with_EWT_Folder").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder4">[in_Branch_Code]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder5">[in_Month_End.ToString("yyyy")]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder6">[in_Month_End.ToString("MM")+in_Month_End.ToString("MMMM")]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder7">[Nothing]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder8">[Nothing]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder9">[Nothing]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SubFolder10">[Nothing]</InArgument>
+                                              <InOutArgument x:TypeArguments="umfm:O365DriveRemoteItem" x:Key="io_DestinationFolder">[DestinationFolder]</InOutArgument>
+                                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                                              <InArgument x:TypeArguments="x:Int32" x:Key="in_MSTimeout">[in_MSTimeout]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_MSTenantID">[in_MSTenantID]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_MSAppID">[in_MSAppID]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_MSAppSecret">[in_MSAppSecret]</InArgument>
+                                            </ui:InvokeWorkflowFile.Arguments>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:InvokeWorkflowFile>
+                                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,57" sap2010:WorkflowViewState.IdRef="CommentOut_22">
+                                            <ui:CommentOut.Body>
+                                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,228" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sharepoint_GetLocalFiles - Invoke Workflow File (Sharepoint_GetLocalFiles.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_67" UnSafe="False" WorkflowFileName="Sharepoint\Sharepoint_GetLocalFiles.xaml">
+                                                  <ui:InvokeWorkflowFile.Arguments>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_LocalFilePath">[in_Config("SM_RERAP_OPERATIONS_FolderPath").toString]</InArgument>
+                                                    <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_Files">[arr_files]</OutArgument>
+                                                  </ui:InvokeWorkflowFile.Arguments>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:InvokeWorkflowFile>
+                                              </Sequence>
+                                            </ui:CommentOut.Body>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:CommentOut>
+                                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,330" sap2010:WorkflowViewState.IdRef="CommentOut_21">
+                                            <ui:CommentOut.Body>
+                                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,228" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sharepoint_UploadFilesList - Invoke Workflow File (Sharepoint_UploadFilesList.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_68" UnSafe="False" WorkflowFileName="Sharepoint\Sharepoint_UploadFilesList.xaml">
+                                                  <ui:InvokeWorkflowFile.Arguments>
+                                                    <InArgument x:TypeArguments="s:String[]" x:Key="in_FileList">[arr_files]</InArgument>
+                                                    <InArgument x:TypeArguments="umfm:O365DriveRemoteItem" x:Key="in_DestinationFolder">[DestinationFolder]</InArgument>
+                                                    <InArgument x:TypeArguments="x:Int32" x:Key="in_MSTimeout">[in_MSTimeout]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_MSTenantID">[in_MSTenantID]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_MSAppID">[in_MSAppID]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_MSAppSecret">[in_MSAppSecret]</InArgument>
+                                                  </ui:InvokeWorkflowFile.Arguments>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:InvokeWorkflowFile>
+                                              </Sequence>
+                                            </ui:CommentOut.Body>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:CommentOut>
+                                        </Sequence>
+                                        <FlowStep.Next>
+                                          <FlowStep x:Name="__ReferenceID21">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:Point x:Key="ShapeLocation">635,2035</av:Point>
+                                                <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                                <av:PointCollection x:Key="ConnectorLocation">643.844223474925,2291.131465465425 643.844223474925,2321.131465465425 493.84422347492495,2321.131465465425 493.84422347492495,2426.131465465425</av:PointCollection>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Outlook_EmailComplete - Invoke Workflow File (Outlook\Outlook_EmailComplete.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_87" UnSafe="False" WorkflowFileName="Outlook\Outlook_SendEmail.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_TransactionDate">[Nothing]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailTO">[in_Email_Operations]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailSubject">[in_Config("SM_RERAPP_Email_Weekly_Subject").ToString.Replace("[Branch Code]",in_Branch_Code).Replace("[Service Type]",in_Service_Type).Replace("[Month]",in_Month_End.toString("MMMM")).Replace("[Year]",in_Month_End.toString("yyyy")).Replace("[Department]",in_Config("SM_RERAPP_Email_Leasing_Name").ToString)]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailBody">[in_Config("SM_RERAPP_Email_Weekly_Body").ToString.Replace("[Branch Code]",in_Branch_Code).Replace("[Service Type]",in_Service_Type).Replace("[Month]",in_Month_End.toString("MMMM")).Replace("[Year]",in_Month_End.toString("yyyy")).Replace("[Department]",in_Config("SM_RERAPP_Email_Operations_Name").ToString).Replace("[Sharepoint Link]",DestinationFolder.url)]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailCC">[in_Email_AR]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailBCC">[in_EmailBCC]</InArgument>
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:InvokeWorkflowFile>
+                                          </FlowStep>
+                                        </FlowStep.Next>
+                                      </FlowStep>
+                                    </FlowStep.Next>
+                                  </FlowStep>
+                                </FlowDecision.True>
+                                <FlowDecision.False>
+                                  <FlowStep x:Name="__ReferenceID16">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:Point x:Key="ShapeLocation">325,1805</av:Point>
+                                        <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                        <av:PointCollection x:Key="ConnectorLocation">380,1875 380,1925</av:PointCollection>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;ClassificationOperations is Empty&quot;]">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:LogMessage>
+                                    <FlowStep.Next>
+                                      <FlowStep x:Name="__ReferenceID20">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <av:Point x:Key="ShapeLocation">325,1925</av:Point>
+                                            <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                            <av:PointCollection x:Key="ConnectorLocation">333.84422347492495,2181.131465465425 333.84422347492495,2211.131465465425 493.84422347492495,2211.131465465425 493.84422347492495,2426.131465465425</av:PointCollection>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Outlook_EmailComplete - Invoke Workflow File (Outlook\Outlook_EmailComplete.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_86" UnSafe="False" WorkflowFileName="Outlook\Outlook_SendEmail.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionDate">[Nothing]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_EmailTO">[in_Email_Operations]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_EmailSubject">[in_Config("SM_RERAPP_Email_Weekly_Subject").ToString.Replace("[Branch Code]",in_Branch_Code).Replace("[Service Type]",in_Service_Type).Replace("[Month]",in_Month_End.toString("MMMM")).Replace("[Year]",in_Month_End.toString("yyyy")).Replace("[Department]",in_Config("SM_RERAPP_Email_Leasing_Name").ToString)]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_EmailBody">[in_Config("SM_RERAPP_Email_Weekly_No_Contracts_Body").ToString.Replace("[Branch Code]",in_Branch_Code).Replace("[Service Type]",in_Service_Type).Replace("[Month]",in_Month_End.toString("MMMM")).Replace("[Year]",in_Month_End.toString("yyyy")).Replace("[Department]",in_Config("SM_RERAPP_Email_Operations_Name").ToString)]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_EmailCC">[in_Email_AR]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_EmailBCC">[in_EmailBCC]</InArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:InvokeWorkflowFile>
+                                      </FlowStep>
+                                    </FlowStep.Next>
+                                  </FlowStep>
+                                </FlowDecision.False>
+                              </FlowDecision>
+                            </FlowStep.Next>
+                          </FlowStep>
+                        </FlowStep.Next>
+                      </FlowStep>
+                    </FlowStep.Next>
+                  </FlowStep>
+                </FlowStep.Next>
+              </FlowStep>
+            </FlowDecision.True>
+            <FlowDecision.False>
+              <FlowStep x:Name="__ReferenceID12" sap2010:WorkflowViewState.IdRef="FlowStep_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">325,1225</av:Point>
+                    <av:Size x:Key="ShapeSize">110,70</av:Size>
+                    <av:PointCollection x:Key="ConnectorLocation">380,1295 380,1335</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;dt_ClassificationLeasing is Empty&quot;]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:LogMessage>
+                <FlowStep.Next>
+                  <FlowStep x:Name="__ReferenceID17" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">325,1335</av:Point>
+                        <av:Size x:Key="ShapeSize">110,70</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">380,1405 380,1435 540,1435 540,1650</av:PointCollection>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Outlook_EmailComplete - Invoke Workflow File (Outlook\Outlook_EmailComplete.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_84" UnSafe="False" WorkflowFileName="Outlook\Outlook_SendEmail.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_TransactionDate">[Nothing]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_EmailTO">[in_Email_Leasing]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_EmailSubject">[in_Config("SM_RERAPP_Email_Weekly_Subject").ToString.Replace("[Branch Code]",in_Branch_Code).Replace("[Service Type]",in_Service_Type).Replace("[Month]",in_Month_End.toString("MMMM")).Replace("[Year]",in_Month_End.toString("yyyy")).Replace("[Department]",in_Config("SM_RERAPP_Email_Leasing_Name").ToString)]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_EmailBody">[in_Config("SM_RERAPP_Email_Weekly_No_Contracts_Body").ToString.Replace("[Branch Code]",in_Branch_Code).Replace("[Service Type]",in_Service_Type).Replace("[Month]",in_Month_End.toString("MMMM")).Replace("[Year]",in_Month_End.toString("yyyy")).Replace("[Department]",in_Config("SM_RERAPP_Email_Leasing_Name").ToString)]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_EmailCC">[in_Email_AR]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_EmailBCC">[in_EmailBCC]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:InvokeWorkflowFile>
+                    <FlowStep.Next>
+                      <x:Reference>__ReferenceID0</x:Reference>
+                    </FlowStep.Next>
+                  </FlowStep>
+                </FlowStep.Next>
+              </FlowStep>
+            </FlowDecision.False>
+          </FlowDecision>
+        </FlowStep.Next>
+      </FlowStep>
+      <FlowStep x:Key="monthly" x:Name="__ReferenceID9" sap2010:WorkflowViewState.IdRef="FlowStep_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">995,825</av:Point>
+            <av:Size x:Key="ShapeSize">110,70</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">1050,895 1050,1025</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Process Type: &quot; + in_Process_Type]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:LogMessage>
+        <FlowStep.Next>
+          <FlowStep x:Name="__ReferenceID18">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <av:Point x:Key="ShapeLocation">995,1025</av:Point>
+                <av:Size x:Key="ShapeSize">110,70</av:Size>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Outlook_SendEmail - Invoke Workflow File (Outlook\Outlook_SendEmail.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_83" UnSafe="False" WorkflowFileName="Outlook\Outlook_SendEmail.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_TransactionDate">[Nothing]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_EmailTO">[in_Email_AR]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_EmailSubject">[in_Config("SM_RERAPP_Email_Monthly_Subject").ToString.Replace("[Branch Code]",in_Branch_Code).Replace("[Service Type]",in_Service_Type).Replace("[Month]",in_Month_End.toString("MMMM")).Replace("[Year]",in_Month_End.toString("yyyy")).Replace("[SettlementID]",SettlementID)]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_EmailBody">[in_Config("SM_RERAPP_Email_Monthly_Body").ToString.Replace("[Branch Code]",in_Branch_Code).Replace("[Service Type]",in_Service_Type).Replace("[Month]",in_Month_End.toString("MMMM")).Replace("[Year]",in_Month_End.toString("yyyy")).Replace("[SettlementID]",SettlementID)]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_EmailCC">[Nothing]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_EmailBCC">[in_EmailBCC]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+          </FlowStep>
+        </FlowStep.Next>
+      </FlowStep>
+    </FlowSwitch>
+    <FlowStep x:Name="__ReferenceID2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">1205,335</av:Point>
+          <av:Size x:Key="ShapeSize">110,70</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">1260,405 1260,560 865,560</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="CommentOut_16">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SAP_Login - Invoke Workflow File (SAP\SAP_Login.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SAP\SAP_Login.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SAP_LogonPath">[in_SAP_LogonPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SAP_ConnectionName">[in_Config("SM_RERAPP_SAP_ConnectionName").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SAP_Client">[in_Config("SM_RERAPP_SAP_Client").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorFolder">[in_Config("OrchestratorQueueFolder").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SAP_Credential">[in_Config("SM_RERAPP_SAP_Credentials").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SAP_Language">[in_Config("SM_RERAPP_SAP_Language").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:Double" x:Key="in_Timeout">[CDbl(in_Config("SM_RERAPP_SAP_Timeout"))]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_Retries">[CInt(in_Config("SM_RERAPP_SAP_Retries").ToString)]</InArgument>
+                <InArgument x:TypeArguments="x:Double" x:Key="in_RetryInterval">[CDbl(in_Config("SM_RERAPP_SAP_RetryInterval"))]</InArgument>
+                <InArgument x:TypeArguments="x:Boolean" x:Key="is_SSOEnabled">[CBool(in_Config("SM_RERAPP_isSSOEnabledForSAP"))]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+        </ui:CommentOut.Body>
+      </ui:CommentOut>
+      <FlowStep.Next>
+        <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">755,525</av:Point>
+              <av:Size x:Key="ShapeSize">110,70</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">810,595 810,625 1430,625 1430,660</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="&quot;Identifying Business Unit...&quot;" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_1" Message="Identifying Business Unit..." TextColor="White">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </usa:DisplaySubtitleActivity>
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
+          <FlowStep.Next>
+            <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID23" DisplayName="Flow Switch" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_3">
+              <FlowSwitch.Expression>
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Branch_Code" />
+              </FlowSwitch.Expression>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">1400,660</av:Point>
+                  <av:Size x:Key="ShapeSize">60,60</av:Size>
+                  <av:PointCollection x:Key="SMNEConnector">1460,690 1710,690 1710,775</av:PointCollection>
+                  <av:PointCollection x:Key="SMOAConnector">1430,720 1430,885</av:PointCollection>
+                  <av:PointCollection x:Key="SMSLConnector">1400,690 1250,690 1250,785</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <FlowStep x:Key="SMNE" x:Name="__ReferenceID24">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">1655,775</av:Point>
+                    <av:Size x:Key="ShapeSize">110,70</av:Size>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Throw Exception="[New SystemException(&quot;You are not authorized to use transaction S_ALR_87012179&quot;)]" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Throw_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Throw>
+              </FlowStep>
+              <FlowStep x:Key="SMOA" x:Name="__ReferenceID25">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">1375,885</av:Point>
+                    <av:Size x:Key="ShapeSize">110,70</av:Size>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Throw Exception="[New SystemException(&quot;Menu Does NOT Exist&quot;)]" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Throw_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Throw>
+              </FlowStep>
+              <FlowStep x:Key="SMSL" x:Name="__ReferenceID26">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">1195,785</av:Point>
+                    <av:Size x:Key="ShapeSize">110,70</av:Size>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Throw Exception="[New SystemException(&quot;No Object Found For Posting&quot;)]" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Throw_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Throw>
+              </FlowStep>
+            </FlowSwitch>
+          </FlowStep.Next>
+        </FlowStep>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <FlowDecision x:Name="__ReferenceID4" Condition="[isSAPLogin]" DisplayName="isSAPLogin" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_1" True="{x:Reference __ReferenceID1}">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <av:Point x:Key="ShapeLocation">780,340</av:Point>
+          <av:Size x:Key="ShapeSize">60,60</av:Size>
+          <av:PointCollection x:Key="TrueConnector">810,400 810,525</av:PointCollection>
+          <av:PointCollection x:Key="FalseConnector">840,370 985,370</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <FlowDecision.False>
+        <FlowStep x:Name="__ReferenceID3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">985,335</av:Point>
+              <av:Size x:Key="ShapeSize">110,70</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">1095,370 1205,370</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="&quot;'SAP' Title bar does not exist. Proceed to Login process&quot;" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_2" Message="'SAP' Title bar does not exist. Proceed to Login process" TextColor="White" />
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
+          <FlowStep.Next>
+            <x:Reference>__ReferenceID2</x:Reference>
+          </FlowStep.Next>
+        </FlowStep>
+      </FlowDecision.False>
+    </FlowDecision>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <FlowStep x:Name="__ReferenceID5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">755,235</av:Point>
+          <av:Size x:Key="ShapeSize">110,70</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">810,305 810,340</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="CommentOut_15">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_19">
+            <ui:UiElementExists DisplayName="Element Exists 'Titlebar SAP'" Exists="[isSAPLogin]" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0c401e80-5894-4564-aa80-c68377f45199" InformativeScreenshot="89c9d0549ef44bb2aa12a62be3941b84" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='*User Menu*' /&gt;&lt;sap id='titl' /&gt;" TimeoutMS="5000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:UiElementExists>
+          </Sequence>
+        </ui:CommentOut.Body>
+      </ui:CommentOut>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID4</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
+    <FlowStep x:Name="__ReferenceID27">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">755,135</av:Point>
+          <av:Size x:Key="ShapeSize">110,70</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">810,205 810,235</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_1">
+            <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="&quot;Checking the 'SAP' Title bar if exist or not started...&quot;" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_3" Message="Checking the 'SAP' Title bar if exist or not started..." TextColor="White" />
+          </Sequence>
+        </ui:CommentOut.Body>
+      </ui:CommentOut>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID5</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
+    <FlowStep>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">755,635</av:Point>
+          <av:Size x:Key="ShapeSize">110,70</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">810,705 810,760</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="CommentOut_14">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_20">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sharepoint_DownloadFile - Invoke Workflow File (Sharepoint\Sharepoint_DownloadFile.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Sharepoint\Sharepoint_DownloadFile.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SharepointURL">[in_Config("SM_RERAPP_Sharepoint_Macro_URL").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_DownloadLocalPath">[in_Config("SM_RERAPP_Macro_FolderPath").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_MSTimeout">[in_MSTimeout]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_MSTenantID">[in_MSTenantID]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_MSAppID">[in_MSAppID]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_MSAppSecret">[in_MSAppSecret]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+        </ui:CommentOut.Body>
+      </ui:CommentOut>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID6</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID7</x:Reference>
+    <x:Reference>__ReferenceID8</x:Reference>
+    <x:Reference>__ReferenceID9</x:Reference>
+    <x:Reference>__ReferenceID10</x:Reference>
+    <x:Reference>__ReferenceID11</x:Reference>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID12</x:Reference>
+    <x:Reference>__ReferenceID13</x:Reference>
+    <x:Reference>__ReferenceID14</x:Reference>
+    <x:Reference>__ReferenceID15</x:Reference>
+    <x:Reference>__ReferenceID16</x:Reference>
+    <x:Reference>__ReferenceID17</x:Reference>
+    <x:Reference>__ReferenceID18</x:Reference>
+    <x:Reference>__ReferenceID19</x:Reference>
+    <x:Reference>__ReferenceID20</x:Reference>
+    <x:Reference>__ReferenceID21</x:Reference>
+    <x:Reference>__ReferenceID22</x:Reference>
+    <x:Reference>__ReferenceID23</x:Reference>
+    <x:Reference>__ReferenceID24</x:Reference>
+    <x:Reference>__ReferenceID25</x:Reference>
+    <x:Reference>__ReferenceID26</x:Reference>
+  </Flowchart>
+</Activity>

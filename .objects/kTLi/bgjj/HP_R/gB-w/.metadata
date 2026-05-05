@@ -1,0 +1,14 @@
+﻿{
+  "Name": "TextField Information M…",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "gB-wNdAsFEiOJc8Z2ONfyg",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/gB-wNdAsFEiOJc8Z2ONfyg",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/HP_RQG1QY0iAIkbjwLNLAA",
+  "Created": "2025-10-20T04:17:11.3013458Z",
+  "Updated": "2025-10-20T04:17:11.3013458Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

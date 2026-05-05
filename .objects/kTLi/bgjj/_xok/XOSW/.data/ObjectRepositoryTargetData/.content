@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="n6RU4xD3bkaDBEKiGc2Ptg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="354, 99, 26, 26" ElementType="Button" FullSelectorArgument="&lt;sap id='tbar[1]/btn[17]' tooltip='Get Variant...   (Shift+F5)' type='GuiButton' /&gt;" Guid="818392da-61c3-4b52-8472-c0cf6b31ec0b" ScopeSelectorArgument="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Customer List' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None">
+      <imageRef attrName="InformativeScreenshot" originalValue="f339c1af8563b467470f314c676ace78.png" xmlns="">0NYiw_Dt6YUibRjtsqZMIjw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

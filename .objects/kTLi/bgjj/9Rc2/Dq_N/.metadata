@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Per.Posting SEP 25",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "Dq_Nj41WyUOP2kdEueO6bA",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/Dq_Nj41WyUOP2kdEueO6bA",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/9Rc2W9kVeEm6pkuH3AOu6Q",
+  "Created": "2025-10-18T08:55:31.9588511Z",
+  "Updated": "2025-10-18T08:55:31.9588511Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

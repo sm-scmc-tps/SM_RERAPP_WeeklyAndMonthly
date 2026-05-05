@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Customer account",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "mCHHqV8BfkSuDkTWRZC2Hg",
+  "Reference": "9sGb63Rt_U-Mv7WHWgXnIw/mCHHqV8BfkSuDkTWRZC2Hg",
+  "ParentRef": "9sGb63Rt_U-Mv7WHWgXnIw/9Rc2W9kVeEm6pkuH3AOu6Q",
+  "Created": "2025-10-13T14:41:45.6111749Z",
+  "Updated": "2025-10-13T14:41:45.6111749Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.11.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
